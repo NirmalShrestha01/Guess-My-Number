@@ -12,6 +12,7 @@
 // If the guessed number and secretNumber match change background color to blue.
 // And after that input field also need to little wider.
 // Display the secrect number if our guess number is correct.
+// Get the highscore once game finish and update once get new Highscore.
 
 const againBtn = document.querySelector('.again');
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
@@ -23,6 +24,7 @@ let guessNumber = document.querySelector('.guess');
 
 // Initial Value of Score.
 let score = 20;
+let highScore = 0;
 
 document.querySelector('.score').textContent = score;
 
@@ -40,6 +42,12 @@ document.querySelector('.check').addEventListener('click' , function() {
         document.querySelector('.number').textContent = secretNumber;
         numberInputField.style.width = '30rem';
         numberInputField.style.fontSize = '8rem';
+
+        // Updating highscore:
+        if(score > highScore) {
+            highScore = score;
+            document.querySelector('.highscore').textContent = highScore;
+        }
     }
     // When guess number is Less than Secret Number.
     else if(guess < secretNumber) {
@@ -69,7 +77,7 @@ document.querySelector('.check').addEventListener('click' , function() {
 
 } );
 
- // When Player click again button.
+ // When Player click Again button.
 
  againBtn.addEventListener('click' , function() {
     // location.reload();
