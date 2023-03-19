@@ -13,11 +13,13 @@
 // And after that input field also need to little wider.
 // Display the secrect number if our guess number is correct.
 
-
-const secretNumber = Math.trunc(Math.random() * 20 + 1);
+const againBtn = document.querySelector('.again');
+let secretNumber = Math.trunc(Math.random() * 20 + 1);
 const message = document.querySelector('.message');
 const currentScore = document.querySelector('.score');
 const numberInputField = document.querySelector('.number');
+let guessNumber = document.querySelector('.guess');
+
 
 // Initial Value of Score.
 let score = 20;
@@ -64,4 +66,20 @@ document.querySelector('.check').addEventListener('click' , function() {
             currentScore.textContent = 0;
         }      
     }
-} )
+
+} );
+
+ // When Player click again button.
+
+ againBtn.addEventListener('click' , function() {
+    // location.reload();
+    score = 20;
+    currentScore.textContent = score;
+    secretNumber = Math.trunc(Math.random() * 20 + 1);
+    message.textContent = "Start guessing...";
+    guessNumber.value = '';
+    numberInputField.textContent = '?';
+    numberInputField.style.width = '15rem';
+    numberInputField.style.fontSize = '5rem';
+    document.querySelector('body').style.backgroundColor = "#222";
+ });
