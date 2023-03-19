@@ -11,6 +11,7 @@
 // Third Phase:
 // If the guessed number and secretNumber match change background color to blue.
 // And after that input field also need to little wider.
+// Display the secrect number if our guess number is correct.
 
 
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
@@ -20,7 +21,7 @@ const numberInputField = document.querySelector('.number');
 
 // Initial Value of Score.
 let score = 20;
-document.querySelector('.number').textContent = secretNumber;
+
 document.querySelector('.score').textContent = score;
 
 document.querySelector('.check').addEventListener('click' , function() {
@@ -34,6 +35,7 @@ document.querySelector('.check').addEventListener('click' , function() {
     else if(guess === secretNumber) {
         message.textContent = "🍾 Correct Answer!";
         document.querySelector('body').style.backgroundColor = "#56AA3F";
+        document.querySelector('.number').textContent = secretNumber;
         numberInputField.style.width = '30rem';
         numberInputField.style.fontSize = '8rem';
     }
